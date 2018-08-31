@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
         AnotherCustomLayout another = view.findViewById(R.id.another_layout_view);
         LayoutInflater layoutInflater = getLayoutInflater();
         String tag, tag1;
-        for (int i = 0; i < rowItems.size(); i++) {
-            tag = "#t1-" + row.getLeftTeamID();
-            tag1 = "#t2-" + row.getRightTeamID();
+        for (int i = 0; i < rowItems.get(0).getItems().get(0).size(); i++) {
+            tag = "#" + rowItems.get(0).getItems().get(0).get(i).getLeftTeamID();
+            tag1 = "#" + rowItems.get(0).getItems().get(0).get(i).getRightTeamID();
             View customView = layoutInflater.inflate(R.layout.custom_view_layout, null, false);
 
             LinearLayout container = customView.findViewById(R.id.container);
