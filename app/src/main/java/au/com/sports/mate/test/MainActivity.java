@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import au.com.sports.mate.test.customView.FinalShapeView;
+import au.com.sports.mate.test.customView.RoundShapeView;
+import au.com.sports.mate.test.customView.StageShapeView;
 import au.com.sports.mate.test.model.AnnotationsItem;
 import au.com.sports.mate.test.model.ConnectionsItem;
 import au.com.sports.mate.test.model.FinalsGridRows;
@@ -57,67 +61,57 @@ public class MainActivity extends AppCompatActivity {
 
         container.removeAllViews();
 
-        for (FinalsGridRows rowItem : finalsGridItems.get(0).getRows()) {
-            attachFinalsGridView(container, rowItem, rowItem.getElementID());
+        for (FinalsGridRows rowItem : rowItems) {
+            container.addView(attachFinalsGridView(rowItem));
         }
 
     }
 
-    private void attachFinalsGridView(ViewGroup parent, FinalsGridRows rowItem, String topElementID) {
+    private View attachFinalsGridView(FinalsGridRows rowItem) {
         if (CustomUtil.isEmpty(rowItem.getItems()))
-            return;
+            return null;
+        List<FinalsGridRows.FinalsGridRowItemsss> finalsGridRowItemsss = rowItem.getItems().get(0);
 
-        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.finals_grid_section, parent, false);
-        parent.addView(view);
-
-        for (FinalsGridRows.FinalsGridRowItemsss row : rowItem.getItems().get(0)) {
-            switch (row.getStyle()) {
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        params.height = (int) CustomUtil.pxFromDp(this,100);
+        params.setMargins(10,10,10,10);
+        linearLayout.setLayoutParams(params);
+        for (FinalsGridRows.FinalsGridRowItemsss item : rowItem.getItems().get(0)) {
+            switch (item.getStyle()) {
                 case "round":
-                    view.addView(createStyleRoundView(view, row));
+                    linearLayout.addView(createStyleRoundView(item));
                     break;
                 case "stage":
-                    view.addView(createStyleStageView(view, row, topElementID));
+                    linearLayout.addView(createStyleStageView(item));
                     break;
                 case "final":
-                    view.addView(createStyleFinalView(view, row));
+                    linearLayout.addView(createStyleFinalView(item));
                     break;
                 /*default:
                         view.addView(createStyleEmptyView(view, row));
                         break;*/
             }
         }
+        return linearLayout;
 
     }
 
-    private View createStyleRoundView(ViewGroup parent, FinalsGridRows.FinalsGridRowItemsss row) {
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_main, parent, false);
-
-
-        AnotherCustomLayout another = view.findViewById(R.id.another_layout_view);
-        LayoutInflater layoutInflater = getLayoutInflater();
-        String tag, tag1;
-        for (int i = 0; i < rowItems.get(0).getItems().get(0).size(); i++) {
-            tag = "#" + rowItems.get(0).getItems().get(0).get(i).getLeftTeamID();
-            tag1 = "#" + rowItems.get(0).getItems().get(0).get(i).getRightTeamID();
-            View customView = layoutInflater.inflate(R.layout.custom_view_layout, null, false);
-
-            LinearLayout container = customView.findViewById(R.id.container);
-
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.rightMargin = getPixelsToDP(10);
-            container.setLayoutParams(layoutParams);
-
-            TextView tagTextView1 = customView.findViewById(R.id.team1_text);
-            TextView tagTextView2 = customView.findViewById(R.id.team2_text);
-            tagTextView1.setText(tag);
-            tagTextView2.setText(tag1);
-            another.addView(customView, layoutParams);
-        }
-        return view;
+    private View createStyleRoundView(FinalsGridRows.FinalsGridRowItemsss row) {
+        RoundShapeView roundShapeView = new RoundShapeView(this);
+        roundShapeView.setTeam1Name(row.getLeftTeamID());
+        roundShapeView.setTeam2Name(row.getRightTeamID());
+        return roundShapeView;
     }
 
-    private View createStyleStageView(ViewGroup parent, FinalsGridRows.FinalsGridRowItemsss row, String topElementID) {
-        View view = LayoutInflater.from(this).inflate(R.layout.finals_grid_style_stage, parent, false);
+    private View createStyleStageView(FinalsGridRows.FinalsGridRowItemsss row) {
+        StageShapeView stageShapeView = new StageShapeView(this);
+        stageShapeView.setmFinalsGridText1(row.getName());
+        //stageShapeView.setmFinalsGridText1(row.get);
+        /*View view = LayoutInflater.from(this).inflate(R.layout.finals_grid_style_stage, parent, false);
 
         String currentID = row.getElementID();
 
@@ -134,17 +128,22 @@ public class MainActivity extends AppCompatActivity {
             text2.setText(row.getName());
             savedId = currentID;
         }
-        return view;
+        return view;*/
+        return stageShapeView;
     }
 
-    private View createStyleFinalView(ViewGroup parent, FinalsGridRows.FinalsGridRowItemsss row) {
-        View view = LayoutInflater.from(this).inflate(R.layout.finals_grid_style_final, parent, false);
+    private View createStyleFinalView(FinalsGridRows.FinalsGridRowItemsss row) {
+
+        FinalShapeView finalShapeView = new FinalShapeView(this);
+        finalShapeView.setmFinalsGridFinalsTrophyImage(row.getTrophyRemoteImageURL());
+       /* View view = LayoutInflater.from(this).inflate(R.layout.finals_grid_style_final, parent, false);
         ImageView imageView = view.findViewById(R.id.finals_grid_finals_trophy_image);
         String trophy = row.getTrophyRemoteImageURL();
         if (!TextUtils.isEmpty(trophy)) {
             Picasso.with(parent.getContext()).load(trophy).placeholder(R.drawable.app_placeholder).into(imageView);
         }
-        return view;
+        return view;*/
+        return finalShapeView;
     }
 
 
