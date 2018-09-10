@@ -1,4 +1,4 @@
-package au.com.sports.mate.test;
+package au.com.sports.mate.test.ui.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import au.com.sports.mate.test.R;
 import au.com.sports.mate.test.customView.FinalShapeView;
 import au.com.sports.mate.test.customView.RoundShapeView;
 import au.com.sports.mate.test.customView.StageShapeView;
@@ -39,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finals);
-        container = findViewById(R.id.container);
+        container = findViewById(R.id.main_activity_container);
         loadData();
     }
 
     private void loadData() {
-        FinalsGridResponse data = CustomUtil.fromJson(this, "finals_grid");
+        FinalsGridResponse data = CustomUtil.fromJson(this, "finals_grid_updated_1");
         Log.d("Hiten", "sizee--- "+data.content.getFinalsGrid().size());
         parseDataIntoDifferentRows(data.getContent().getFinalsGrid());
     }
@@ -108,8 +109,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private View createStyleStageView(FinalsGridRows.FinalsGridRowItemsss row) {
-        StageShapeView stageShapeView = new StageShapeView(this);
-        stageShapeView.setmFinalsGridText1(row.getName());
+        StageShapeView stageShapeView;
+        if(row.getLeftTeamID() != null) {
+            stageShapeView = new StageShapeView(this, true);
+            stageShapeView.setTeam1Name(row.getLeftTeamID());
+            stageShapeView.setTeam2Name(row.getRightTeamID());
+        } else {
+            stageShapeView = new StageShapeView(this, false);
+            stageShapeView.setmFinalsGridText1(row.getName());
+        }
+
         //stageShapeView.setmFinalsGridText1(row.get);
         /*View view = LayoutInflater.from(this).inflate(R.layout.finals_grid_style_stage, parent, false);
 

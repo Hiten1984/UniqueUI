@@ -1,0 +1,249 @@
+{
+  "c": {
+    "finalsGrids": [
+      {
+        "rows": [
+          {
+            "elementID": "row1",
+            "items": [
+              [
+                {
+                  "elementID": "211",
+                  "style": "round",
+                  "matchIDs": [
+                    20180142401
+                  ],
+                  "leftTeamID": 120,
+                  "rightTeamID": 80,
+                  "type": "match",
+                  "leftPrimaryScore": "95",
+                  "rightPrimaryScore": "64",
+                  "winnerTeamID": 120,
+                  "name": "QF1"
+                },
+                {
+                  "elementID": "212",
+                  "style": "round",
+                  "matchIDs": [
+                    20180142403
+                  ],
+                  "leftTeamID": 90,
+                  "rightTeamID": 70,
+                  "type": "match",
+                  "leftPrimaryScore": "75",
+                  "rightPrimaryScore": "46",
+                  "winnerTeamID": 90,
+                  "name": "EF1"
+                },
+                {
+                  "elementID": "213",
+                  "style": "round",
+                  "matchIDs": [
+                    20180142404
+                  ],
+                  "leftTeamID": 160,
+                  "rightTeamID": 1010,
+                  "type": "match",
+                  "leftPrimaryScore": "30",
+                  "rightPrimaryScore": "79",
+                  "winnerTeamID": 1010,
+                  "name": "EF2"
+                },
+                {
+                  "elementID": "214",
+                  "style": "round",
+                  "matchIDs": [
+                    20180142402
+                  ],
+                  "leftTeamID": 150,
+                  "rightTeamID": 40,
+                  "type": "match",
+                  "leftPrimaryScore": "86",
+                  "rightPrimaryScore": "70",
+                  "winnerTeamID": 150,
+                  "name": "QF2"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row2",
+            "items": [
+              [
+                {
+                  "elementID": "221",
+                  "style": "stage",
+                  "matchIDs": [
+                    20180142502
+                  ],
+                  "leftTeamID": 80,
+                  "rightTeamID": 90,
+                  "type": "match",
+                  "name": "SF1"
+                },
+                {
+                  "elementID": "222",
+                  "style": "stage",
+                  "matchIDs": [
+                    20180142501
+                  ],
+                  "leftTeamID": 40,
+                  "rightTeamID": 1010,
+                  "type": "match",
+                  "name": "SF2"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row3",
+            "items": [
+              []
+            ]
+          },
+          {
+            "elementID": "row4",
+            "items": [
+              [
+                {
+                  "elementID": "241",
+                  "style": "stage",
+                  "leftTeamID": 120,
+                  "type": "match",
+                  "name": "PF1"
+                },
+                {
+                  "elementID": "242",
+                  "style": "stage",
+                  "leftTeamID": 150,
+                  "type": "match",
+                  "name": "PF2"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row5",
+            "items": [
+              [
+                {
+                  "elementID": "261",
+                  "style": "final",
+                  "trophyRemoteImageURL": "trophy:afl:1:png",
+                  "type": "match",
+                  "name": "GF"
+                }
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "text": "1",
+            "elementID": "211",
+            "alignment": "left",
+            "edge": "top"
+          },
+          {
+            "text": "4",
+            "elementID": "211",
+            "alignment": "right",
+            "edge": "top"
+          },
+          {
+            "text": "5",
+            "elementID": "212",
+            "alignment": "left",
+            "edge": "top"
+          },
+          {
+            "text": "8",
+            "elementID": "212",
+            "alignment": "right",
+            "edge": "top"
+          },
+          {
+            "text": "6",
+            "elementID": "213",
+            "alignment": "left",
+            "edge": "top"
+          },
+          {
+            "text": "7",
+            "elementID": "213",
+            "alignment": "right",
+            "edge": "top"
+          },
+          {
+            "text": "2",
+            "elementID": "214",
+            "alignment": "left",
+            "edge": "top"
+          },
+          {
+            "text": "3",
+            "elementID": "214",
+            "alignment": "right",
+            "edge": "top"
+          }
+        ],
+        "connections": [
+          {
+            "fromElementID": "211",
+            "toElementIDs": [
+              "221",
+              "241"
+            ]
+          },
+          {
+            "fromElementID": "212",
+            "toElementIDs": [
+              "221"
+            ]
+          },
+          {
+            "fromElementID": "213",
+            "toElementIDs": [
+              "222"
+            ]
+          },
+          {
+            "fromElementID": "214",
+            "toElementIDs": [
+              "222",
+              "242"
+            ]
+          },
+          {
+            "fromElementID": "221",
+            "toElementIDs": [
+              "242"
+            ]
+          },
+          {
+            "fromElementID": "222",
+            "toElementIDs": [
+              "241"
+            ]
+          },
+          {
+            "fromElementID": "241",
+            "toElementIDs": [
+              "261"
+            ]
+          },
+          {
+            "fromElementID": "242",
+            "toElementIDs": [
+              "261"
+            ]
+          }
+        ],
+        "competitionID": "201814",
+        "competitionName": "Live AFL 2018 Finals Grid"
+      }
+    ],
+    "defaultCompetitionID": "201814"
+  },
+  "v": 20180910000132
+}

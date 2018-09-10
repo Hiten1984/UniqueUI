@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1003103644077",
+    "firebase_url": "https://fcmpushnotificationtest-1a971.firebaseio.com",
+    "project_id": "fcmpushnotificationtest-1a971",
+    "storage_bucket": "fcmpushnotificationtest-1a971.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003103644077:android:0335a703f793b9b1",
+        "android_client_info": {
+          "package_name": "au.com.sports.mate.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003103644077-pi2knq4ma3enkfc83n6iffjhrj1e12h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa0GSD-t1sDYUvET6-dcc8zlDQWJc1YgE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

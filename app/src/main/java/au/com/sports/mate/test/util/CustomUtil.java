@@ -1,6 +1,8 @@
 package au.com.sports.mate.test.util;
 
+import android.app.ActivityManager;
 import android.content.Context;
+import android.os.Build;
 
 import com.google.gson.Gson;
 
@@ -41,4 +43,21 @@ public class CustomUtil {
         return dp * context.getResources().getDisplayMetrics().density;
     }
 
+    public static boolean isOtherAppInForeground(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return true;
+
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
+        if (runningAppProcesses == null)
+            return false;
+
+        for (ActivityManager.RunningAppProcessInfo runningAppProcess : runningAppProcesses) {
+            if (runningAppProcess.processName.equals(context.getPackageName()) && runningAppProcess.importance == ActivityManager.RunningAppProcessInfo
+                    .IMPORTANCE_FOREGROUND) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
