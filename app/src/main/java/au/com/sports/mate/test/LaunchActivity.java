@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
+import au.com.sports.mate.test.line.DrawLineActivity;
 import au.com.sports.mate.test.timer.TimerActivity;
 import au.com.sports.mate.test.ui.view.MainActivity;
 import au.com.sports.mate.test.notification.ui.NotificationActivity;
@@ -23,6 +24,9 @@ public class LaunchActivity extends AppCompatActivity {
 
     @BindView(R.id.button_timer)
     Button timerButton;
+
+    @BindView(R.id.button_line)
+    Button drawLine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,12 @@ public class LaunchActivity extends AppCompatActivity {
     @OnClick(R.id.button_timer)
     public void onTimerClassCLicked() {
         Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.button_line)
+    public void onDrawLineCLicked() {
+        Intent intent = new Intent(this, DrawLineActivity.class);
         startActivity(intent);
     }
 }

@@ -45,6 +45,15 @@
             android:text="Launch Timer"
             android:layout_height="wrap_content" />
 
+
+        <Button
+            android:id="@+id/button_line"
+            android:layout_margin="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Draw Line"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </RelativeLayout>

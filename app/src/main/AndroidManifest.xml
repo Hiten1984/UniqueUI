@@ -23,6 +23,7 @@
         <activity android:name=".notification.ui.NotificationActivity" />
         <activity android:name=".ui.view.MainActivity" />
         <activity android:name=".timer.TimerActivity" />
+        <activity android:name=".line.DrawLineActivity" />
 
         <service
             android:name=".notification.service.MyAppFirebaseMessagingService">
