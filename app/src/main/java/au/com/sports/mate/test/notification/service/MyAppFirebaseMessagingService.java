@@ -77,6 +77,7 @@ public class MyAppFirebaseMessagingService extends FirebaseMessagingService {
         Class cls = null;
         try {
             cls = Class.forName(className);
+            Log.d("Hiten","Class Name -- "+cls);
         } catch (ClassNotFoundException e) {
             //means you made a wrong input in firebase console
         }

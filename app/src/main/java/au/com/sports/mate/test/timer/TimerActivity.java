@@ -24,8 +24,8 @@ public class TimerActivity extends AppCompatActivity {
     @BindView(R.id.timer_value)
     TextView timerValue;
 
-    MyCount counter;
-    long startInterval = 10 * 1000l; // 20 sec
+    MyCount counterTask;
+    long startInterval = 20 * 1000l; // 20 sec
     private long remainingTime;
     long interval = 0l;
     private long newInterval = 0;
@@ -48,8 +48,9 @@ public class TimerActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         SharedPreferencesUtil.setRefreshTime(getApplicationContext(), remainingTime);
-        counter.cancel();
-        counter = null;
+        /*counter.cancel();
+        counter = null;*/
+        counterTask.setPaused(true);
         Log.d("Hiten", "onPAuse called *** " + remainingTime);
 
     }
@@ -59,40 +60,65 @@ public class TimerActivity extends AppCompatActivity {
         super.onStart();
         interval = SharedPreferencesUtil.getRefreshTime(getApplicationContext());
         Log.d("Hiten", "OnResume called *** " + interval);
-        if (interval != 0) {
-            if (counter != null) {
-                counter.cancel();
-                counter = null;
-            }
-            counter = new MyCount(interval, 1000);
+        Log.d("Hiten", "inside onStart countertask value -- " + counterTask);
+        if(counterTask == null || counterTask.isCanceled() && interval == 0) {
+            Log.d("Hiten", "OnResume called **111111* ");
+            counterTask = new MyCount(startInterval, 1000);
         } else {
-            counter = new MyCount(startInterval, 1000);
+            Log.d("Hiten", "OnResume called **22222222* ");
+            counterTask.setPaused(false);
+            counterTask.cancel();
+            counterTask = null;
+            counterTask = new MyCount(interval, 1000);
         }
+
+       /* if (interval != 0) {
+            if (counterTask != null || counterTask.isNewsCanceled()) {
+                counterTask.cancel();
+                counterTask = null;
+            }
+            counterTask = new MyCount(interval, 1000);
+        } else {
+            counterTask = new MyCount(startInterval, 1000);
+        }*/
         SharedPreferencesUtil.setRefreshTime(getApplicationContext(), 0l);
         Log.d("Hiten", "OnResume called after setting to 0 *** " + SharedPreferencesUtil.getRefreshTime(getApplicationContext()));
-        counter.start();
+        counterTask.start();
     }
 
     public class MyCount extends CountDownTimer {
-        /**
-         * @param millisInFuture    The number of millis in the future from the call
-         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
-         *                          is called.
-         * @param countDownInterval The interval along the way to receive
-         *                          {@link #onTick(long)} callbacks.
-         */
+        private boolean paused = false;
+        private boolean canceled = false;
+        private int pauseCount = 0;
 
         public MyCount(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
+        }
+
+        public boolean isPaused() {
+            return paused;
+        }
+
+        public boolean isCanceled() {
+            return canceled;
+        }
+
+        public void setPaused(boolean paused) {
+            this.paused = paused;
+        }
+
+        public void setCanceled() {
+            canceled = true;
+            cancel();
         }
 
         @Override
         public void onFinish() {
             timerValue.setText("DONE");
             interval = 0l;
-            if(counter != null) {
-                counter.cancel();
-                counter = null;
+            if(counterTask != null) {
+                counterTask.cancel();
+                counterTask = null;
             }
             SharedPreferencesUtil.setRefreshTime(getApplicationContext(), 0l);
             onStart();
@@ -102,6 +128,18 @@ public class TimerActivity extends AppCompatActivity {
         public void onTick(long millisUntilFinished) {
             remainingTime = millisUntilFinished;
             timerValue.setText("left:" + remainingTime / 1000);
+            if(isPaused()) {
+                Log.d("Hiten", "inside run -- timer task is paused " + pauseCount);
+                pauseCount++;
+                if(pauseCount == 3) {
+                    Log.d("Hiten", "inside run -- timer task is cancelled " + pauseCount);
+                    setCanceled();
+                }
+                return;
+            }
+            pauseCount = 0;
+//            remainingTime = millisUntilFinished;
+//            timerValue.setText("left:" + remainingTime / 1000);
         }
 
     }

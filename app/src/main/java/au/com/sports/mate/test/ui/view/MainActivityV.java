@@ -27,7 +27,7 @@ import au.com.sports.mate.test.model.FinalsGridRows;
 import au.com.sports.mate.test.response.FinalsGridResponse;
 import au.com.sports.mate.test.util.CustomUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityV extends AppCompatActivity {
 
     private List<FinalsGridRows> rowItems;
     private List<ConnectionsItem> connectionItems;
@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        FinalsGridResponse data = CustomUtil.fromJson(this, "finals_grid_updated_1");
+//        FinalsGridResponse data = CustomUtil.fromJson(this, "finals_grid_updated_1");
+        FinalsGridResponse data = CustomUtil.fromJson(this, "finals_grid");
         Log.d("Hiten", "sizee--- "+data.content.getFinalsGrid().size());
         parseDataIntoDifferentRows(data.getContent().getFinalsGrid());
     }

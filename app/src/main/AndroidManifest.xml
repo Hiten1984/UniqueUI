@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="au.com.sports.mate.test">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,34 +23,43 @@
         <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="general"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="general" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".notification.ui.NotificationActivity" />
-        <activity android:name=".ui.view.MainActivity" />
+        <activity android:name=".ui.view.MainActivityV" />
         <activity android:name=".timer.TimerActivity" />
         <activity android:name=".line.DrawLineActivity" />
+        <activity android:name=".webview.WebViewActivity" />
+        <activity android:name=".stickylist.StickyListActivity" />
+        <activity android:name=".multiselect.MultiSelectActivity" />
+        <activity android:name=".calendar.CalendarActivity" />
 
-        <service
-            android:name=".notification.service.MyAppFirebaseMessagingService">
+        <service android:name=".notification.service.MyAppFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".notification.service.MyAppFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <activity
+            android:name=".general.GeneralActivity"
+            android:label="@string/title_activity_general"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

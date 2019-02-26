@@ -11,10 +11,29 @@
         android:textSize="18sp"
         android:layout_margin="8dp"
         android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/button_container0"
+        android:layout_below="@+id/welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/button_general"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
+            android:text="GENERAL"
+            android:textColor="#F93AA100"
+            android:layout_margin="4dp"/>
+
+    </LinearLayout>
     
     <LinearLayout
-        android:id="@+id/button_container"
-        android:layout_below="@+id/welcome_text"
+        android:id="@+id/button_container1"
+        android:layout_below="@+id/button_container0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -52,6 +71,56 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="Draw Line"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_container2"
+        android:layout_below="@+id/button_container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/web_view_button"
+            android:layout_margin="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Launch WebView"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/stick_list_button"
+            android:layout_margin="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Launch Sticky List"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/multi_select_list_button"
+            android:layout_margin="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Launch Multi Select"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_container3"
+        android:layout_below="@+id/button_container2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/calendar_view"
+            android:layout_margin="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Launch Calendar View"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
