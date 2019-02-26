@@ -1,0 +1,270 @@
+{
+  "c": {
+    "finalsGrids": [
+      {
+        "rows": [
+          {
+            "elementID": "row1",
+            "items": [
+              [],
+              [
+                {
+                  "elementID": "211",
+                  "style": "round",
+                  "matchIDs": [
+                    20190105034
+                  ],
+                  "leftTeamID": 338,
+                  "rightTeamID": 325,
+                  "type": "match",
+                  "leftPrimaryScore": "21",
+                  "rightPrimaryScore": "7",
+                  "winnerTeamID": 338,
+                  "name": "WC1"
+                }
+              ],
+              [
+                {
+                  "elementID": "213",
+                  "style": "round",
+                  "matchIDs": [
+                    20190106033
+                  ],
+                  "leftTeamID": 357,
+                  "rightTeamID": 366,
+                  "type": "match",
+                  "leftPrimaryScore": "23",
+                  "rightPrimaryScore": "17",
+                  "winnerTeamID": 357,
+                  "name": "WC2"
+                }
+              ],
+              []
+            ]
+          },
+          {
+            "elementID": "row2",
+            "items": [
+              [
+                {
+                  "elementID": "221",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190112012
+                  ],
+                  "leftTeamID": 338,
+                  "rightTeamID": 339,
+                  "type": "match",
+                  "leftPrimaryScore": "13",
+                  "rightPrimaryScore": "31",
+                  "winnerTeamID": 339,
+                  "name": "DP1"
+                }
+              ],
+              [
+                {
+                  "elementID": "222",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190113017
+                  ],
+                  "leftTeamID": 357,
+                  "rightTeamID": 348,
+                  "type": "match",
+                  "leftPrimaryScore": "28",
+                  "rightPrimaryScore": "41",
+                  "winnerTeamID": 348,
+                  "name": "DP2"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row3",
+            "items": [
+              [
+                {
+                  "elementID": "231",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190120012
+                  ],
+                  "leftTeamID": 339,
+                  "rightTeamID": 348,
+                  "type": "match",
+                  "leftPrimaryScore": "31",
+                  "rightPrimaryScore": "37",
+                  "winnerTeamID": 348,
+                  "name": "AFC"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row4",
+            "items": [
+              [
+                {
+                  "elementID": "241",
+                  "style": "final",
+                  "matchIDs": [
+                    20190203014
+                  ],
+                  "trophyRemoteImageURL": "trophy:nfl:1:png",
+                  "leftTeamID": 343,
+                  "rightTeamID": 348,
+                  "type": "match",
+                  "leftPrimaryScore": "3",
+                  "rightPrimaryScore": "13",
+                  "winnerTeamID": 348,
+                  "name": "SB LIII"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row5",
+            "items": [
+              [
+                {
+                  "elementID": "251",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190120018
+                  ],
+                  "leftTeamID": 350,
+                  "rightTeamID": 343,
+                  "type": "match",
+                  "leftPrimaryScore": "23",
+                  "rightPrimaryScore": "26",
+                  "winnerTeamID": 343,
+                  "name": "NFC"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row6",
+            "items": [
+              [
+                {
+                  "elementID": "261",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190112014
+                  ],
+                  "leftTeamID": 331,
+                  "rightTeamID": 343,
+                  "type": "match",
+                  "leftPrimaryScore": "22",
+                  "rightPrimaryScore": "30",
+                  "winnerTeamID": 343,
+                  "name": "DP3"
+                }
+              ],
+              [
+                {
+                  "elementID": "262",
+                  "style": "stage",
+                  "matchIDs": [
+                    20190113018
+                  ],
+                  "leftTeamID": 354,
+                  "rightTeamID": 350,
+                  "type": "match",
+                  "leftPrimaryScore": "14",
+                  "rightPrimaryScore": "20",
+                  "winnerTeamID": 350,
+                  "name": "DP4"
+                }
+              ]
+            ]
+          },
+          {
+            "elementID": "row7",
+            "items": [
+              [],
+              [
+                {
+                  "elementID": "271",
+                  "style": "round",
+                  "matchIDs": [
+                    20190105006
+                  ],
+                  "leftTeamID": 361,
+                  "rightTeamID": 331,
+                  "type": "match",
+                  "leftPrimaryScore": "22",
+                  "rightPrimaryScore": "24",
+                  "winnerTeamID": 331,
+                  "name": "WC1"
+                }
+              ],
+              [
+                {
+                  "elementID": "273",
+                  "style": "round",
+                  "matchIDs": [
+                    20190106003
+                  ],
+                  "leftTeamID": 354,
+                  "rightTeamID": 326,
+                  "type": "match",
+                  "leftPrimaryScore": "16",
+                  "rightPrimaryScore": "15",
+                  "winnerTeamID": 354,
+                  "name": "WC2"
+                }
+              ],
+              []
+            ]
+          }
+        ],
+        "annotations": [],
+        "connections": [
+          {
+            "fromElementID": "262",
+            "toElementIDs": [
+              "251"
+            ]
+          },
+          {
+            "fromElementID": "261",
+            "toElementIDs": [
+              "251"
+            ]
+          },
+          {
+            "fromElementID": "221",
+            "toElementIDs": [
+              "231"
+            ]
+          },
+          {
+            "fromElementID": "251",
+            "toElementIDs": [
+              "241"
+            ]
+          },
+          {
+            "fromElementID": "222",
+            "toElementIDs": [
+              "231"
+            ]
+          },
+          {
+            "fromElementID": "231",
+            "toElementIDs": [
+              "241"
+            ]
+          }
+        ],
+        "competitionID": "20188",
+        "competitionName": "NFL 2018 Playoffs"
+      }
+    ],
+    "defaultCompetitionID": "20188"
+  },
+  "v": 20190226003810,
+  "s": "nfl"
+}
