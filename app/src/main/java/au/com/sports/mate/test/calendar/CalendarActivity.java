@@ -1,15 +1,15 @@
 package au.com.sports.mate.test.calendar;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -100,6 +100,26 @@ public class CalendarActivity extends AppCompatActivity implements Fragment1.onD
     @OnClick(R.id.bottom_button)
     public void onBottomButtonClicked() {
         loadFragment2();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_delete:
+                loadFragments();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_select, menu);
+        return true;
     }
 
     private void loadFragment1() {
